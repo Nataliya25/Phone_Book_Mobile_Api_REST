@@ -9,5 +9,5 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactsDto {
-    private ContactDTOLombok [] contacts;
+    private ContactDtoLombok[] contacts;
 }

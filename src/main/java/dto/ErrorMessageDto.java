@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class ErrorMessageDTO {
+public class ErrorMessageDto {
     private String timestamp; //    string($date-time)
     private int status; //  integer($int32)
     private String error; //    string

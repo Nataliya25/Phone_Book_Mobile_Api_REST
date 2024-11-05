@@ -1,7 +1,7 @@
 package api_tests;
 
 import config.AuthenticationController;
-import dto.ErrorMessageDTO;
+import dto.ErrorMessageDto;
 import dto.UserDto;
 import io.restassured.response.Response;
 import org.testng.Assert;
@@ -27,7 +27,7 @@ SoftAssert softAssert = new SoftAssert();
     public void registrationNegativeTest_wrongEmail(){
         UserDto user = new UserDto(generateString(12),"Password123!");
         Response response = requestRegLogin(user,REGISTRATION_PATH);
-        ErrorMessageDTO errorMessageDTO = response.getBody().as(ErrorMessageDTO.class);
+        ErrorMessageDto errorMessageDTO = response.getBody().as(ErrorMessageDto.class);
         System.out.println(errorMessageDTO);
         softAssert.assertTrue(errorMessageDTO.getError().equals("Bad Request"));
         softAssert.assertTrue(errorMessageDTO.getMessage().toString().contains("must be a well-formed"));
@@ -41,7 +41,7 @@ SoftAssert softAssert = new SoftAssert();
         UserDto user = new UserDto(getProperty("data.properties", "email"),
                 getProperty("data.properties", "password"));
         Response response = requestRegLogin(user, REGISTRATION_PATH);
-        ErrorMessageDTO errorMessageDto = response.getBody().as(ErrorMessageDTO.class);
+        ErrorMessageDto errorMessageDto = response.getBody().as(ErrorMessageDto.class);
         System.out.println(errorMessageDto);
         softAssert.assertTrue(errorMessageDto.getError().equals("Conflict"));
         softAssert.assertTrue(errorMessageDto.getMessage().toString().contains("User already exists"));
