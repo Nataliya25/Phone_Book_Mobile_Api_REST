@@ -17,4 +17,13 @@ public class AuthenticationController implements BaseApi {
                 .thenReturn();
     }
 
+    protected Response requestLogin(UserDto user, String url){
+        return  given()
+                .body(user)
+                .contentType(ContentType.JSON)
+                .when()
+                .post(BASE_URL+url)
+                .thenReturn();
+    }
+
 }
