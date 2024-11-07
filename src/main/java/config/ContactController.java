@@ -68,4 +68,12 @@ public class ContactController implements BaseApi {
                 .put(BASE_URL+GET_ALL_CONTACTS_PATH)
                 .thenReturn();
     }
+    protected Response addContactResponse (ContactDtoLombok contactNew, String token){
+        return given()
+                .body(contactNew)
+                .header("Authorization", tokenDto.getToken())
+                .contentType(ContentType.JSON)
+                .post(BASE_URL+GET_ALL_CONTACTS_PATH)
+                .thenReturn();
+    }
 }
